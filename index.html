@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <title>Diagnosa Penyakit Gusi dan Gigi dengan Forward Chaining</title>
+</head>
+<body>
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#awal">
+    Diagnose
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="awal" tabindex="-1" aria-labelledby="awalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            Apakah Anda memiliki cedera yang merontokkan gigi?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-target="#r0no" data-bs-toggle="modal">No</button>
+          <button type="button" class="btn btn-primary" data-bs-target="#r0yes" data-bs-toggle="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Did you have an injury that knocked out a tooth? IS NO -->
+  <div class="modal fade" id="r0no" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            Apakah Anda memiliki rasa sakit yang khusus untuk satu gigi?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-target="#r4" data-bs-toggle="modal">No</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#r3" data-bs-toggle="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Did you have an injury that knocked out a tooth? IS YES -->
+  <div class="modal fade" id="r0yes" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="r0yesLabel2">Kehilangan Gigi</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <b>DARURAT GIGI</b> <br />
+            Temui dokter gigi Anda atau segera pergi ke ruang gawat darurat. Jaga kelembapan gigi.<br />
+            Sebaiknya gigi tetap di dalam mulut sampai Anda tiba di dokter gigi atau ruang gawat darurat. Gigi bisa diselamatkan.<br />
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you have pain that is specific to one tooth? IS YES  -->
+  <div class="modal fade" id="r3" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            Pernahkah Anda mematahkan atau mencongkel gigi atau apakah gigi tersebut lepas pada soket/gusinya?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-target="#r6" data-bs-toggle="modal">No</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#r5" data-bs-toggle="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you have pain that is specific to one tooth? IS NO -->
+  <div class="modal fade" id="r4" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            Apakah Anda mengalami kemerahan atau bengkak di sekitar satu atau lebih gigi di gusi atau di wajah Anda?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-target="#r10" data-bs-toggle="modal">No</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#r9" data-bs-toggle="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Have you broken or chipped a tooth or is the tooth loose in its socket? IS YES -->
+  <div class="modal fade" id="r5" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="r5Label2">Rasa sakit Anda mungkin berasal dari GIGI PATAH, RETAK atau LONGGAR.</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Simpan semua potongan gigi, bungkus dengan kain lembab yang dingin dan temui dokter gigi Anda sesegera mungkin.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Have you broken or chipped a tooth or is the tooth loose in its socket? IS NO -->
+  <div class="modal fade" id="r6" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            Apakah Anda merasa sakit saat makan makanan atau minum minuman dingin?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-target="#r8" data-bs-toggle="modal">No</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#r7" data-bs-toggle="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you feel pain when you eat cold foods or liquids? IS YES -->
+  <div class="modal fade" id="r7" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="r7Label2">Rasa sakit Anda mungkin berasal dari GIGI BERLOBANG.</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Buatlah janji bertemu dengan dokter gigi Anda. Menyikat dan membersihkan gigi dengan benar bersama dengan kumur dan pelapis fluoride, seperti yang disarankan oleh dokter gigi Anda, dapat mencegah kerusakan gigi.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you feel pain when you eat cold foods or liquids? IS NO -->
+  <div class="modal fade" id="r8" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            Apakah Anda mengalami kemerahan atau bengkak di sekitar satu atau lebih gigi di gusi atau di wajah Anda?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-target="#r10" data-bs-toggle="modal">No</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#r9" data-bs-toggle="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you have redness or swelling around one or more teeth in your gums or in your face? IS YES -->
+  <div class="modal fade" id="r9" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="r9Label2">Rasa sakit Anda mungkin berasal dari GIGI BERLOBANG.</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Temui dokter gigi atau dokter segera
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you have redness or swelling around one or more teeth in your gums or in your face? IS NO -->
+  <div class="modal fade" id="r10" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            Apakah Anda mengalami kemerahan dan pembengkakan di area gusi yang luas atau apakah kulit di dalam mulut Anda terkelupas?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-target="#r12" data-bs-toggle="modal">No</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#r11" data-bs-toggle="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you have redness and swelling in large areas of your gums or is the skin inside your mouth peeling? IS YES -->
+  <div class="modal fade" id="r11" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="r11Label2">Anda mungkin mengalami infeksi seperti TRENCH MOUTH, GINGIVITIS atau PERIODONTITIS. Reaksi obat yang langka, REAKSI STEVENS-JOHNSON, juga dapat menyebabkan hal ini.</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Temui dokter gigi atau dokter Anda segera. Anda mungkin diberikan antibiotik untuk menghentikan infeksi. Pereda nyeri yang dijual bebas, seperti acetaminophen, dapat meredakan ketidaknyamanan. Banyak dari infeksi ini dapat dicegah dengan perawatan gigi yang tepat, seperti menyikat gigi dan flossing secara teratur
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you have redness and swelling in large areas of your gums or is the skin inside your mouth peeling? IS NO -->
+  <div class="modal fade" id="r12" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            Apakah Anda mengalami sakit kepala di dekat telinga atau apakah Anda mendengar suara retak saat menggigit?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-target="#r14" data-bs-toggle="modal">No</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#r13" data-bs-toggle="modal">Yes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you have headaches pain near your ear headaches or do you hear a cracking sound when you bite? IS YES -->
+  <div class="modal fade" id="r13" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="r13Label2">Rasa sakit Anda mungkin berasal dari sindrom TEMPOROMANDIBULAR JOINT (TMJ), suatu kondisi yang memengaruhi rahang</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Cobalah rilekskan rahang Anda saat Anda tegang atau gugup. Berhenti mengunyah permen karet. Cobalah yang ringan obat anti inflamasi, seperti ibuprofen. Jika Anda tidak membaik, temui dokter gigi Anda.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- IF Do you have headaches pain near your ear headaches or do you hear a cracking sound when you bite? IS NO -->
+  <div class="modal fade" id="r14" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body">
+            Untuk informasi lebih lanjut, silakan berbicara dengan dokter atau dokter gigi Anda. Jika Anda berpikir masalah serius, hubungi dokter atau dokter gigi Anda segera.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
