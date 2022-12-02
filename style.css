@@ -65,10 +65,12 @@ body{
 }
 
 /* Back button */
+.tombol{
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
 .backbtn {
-    position: absolute;
-    top: 2vw;
-    left: 2vw;
     appearance: none;
     background-color: transparent;
     border: 0.125em solid #1A1A1A;
